@@ -9,7 +9,7 @@ plugins {
 }
 
 group = 'net.minecraftforge'
-version = gradleutils.getTagOffsetVersion()
+version = gradleutils.getTagOffsetBranchVersion()
 println('Version: ' + version)
 
 repositories {
@@ -32,6 +32,10 @@ sourceSets {
 java {
     toolchain.languageVersion = JavaLanguageVersion.of(8)
     withSourcesJar()
+}
+
+compileCpwFMLJava {
+    sourceCompatibility = targetCompatibility = '1.6'
 }
 
 jar {
